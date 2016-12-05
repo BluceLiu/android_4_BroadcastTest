@@ -1,0 +1,48 @@
+1.短信广播
+	1.定义一个类，继承BroadcastReceiver，并重写onReceive方法
+	2.配置文件添加引用
+		<receiver
+	            android:name="cn.thcic.broadcast.ShortMessageReceiver"
+	            android:enabled="true"
+	            >
+	            <intent-filter android:priority="10000">
+	                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+	                  <category android:name="android.intent.category.DEFAULT"/>
+	            </intent-filter>
+	    </receiver>
+	 3. 需要指定一些优先级android:priority="10000"，有时候和系统广播冲突
+	 4.指定权限 <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 
+2.开关机广播
+ <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	 <receiver android:name="A01_01">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+                <category android:name="android.intent.category.HOME"></category>
+            </intent-filter>
+        </receiver>
+        
+        <receiver android:name=".ShutDown">    
+            <intent-filter>    
+                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>    
+            </intent-filter>    
+        </receiver> 
